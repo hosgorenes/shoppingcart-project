@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Global dark mode styles */
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #0f172a;
+  --text-light: #1f2937;
+  --text-dark: #f1f5f9;
+  --card-light: #ffffff;
+  --card-dark: #1e293b;
+}
+
+.dark {
+  --bg: var(--bg-dark);
+  --text: var(--text-dark);
+  --card: var(--card-dark);
+}
+
+html:not(.dark) {
+  --bg: var(--bg-light);
+  --text: var(--text-light);
+  --card: var(--card-light);
+}
+
+/* Force dark mode styles */
+.dark body {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+}
+
+html:not(.dark) body {
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+@layer components {
+  .btn-gradient {
+    @apply px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg hover:from-indigo-600 hover:to-purple-700 shadow-md transition-all duration-200 font-medium cursor-pointer;
+  }
+
+  .dropdown-content {
+    background-color: var(--card);
+    border-color: rgb(156 163 175 / 0.3);
+    @apply shadow-xl rounded-lg p-1 border min-w-[120px];
+  }
+
+  .dropdown-item {
+    color: var(--text);
+    @apply px-4 py-2 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 rounded-md cursor-pointer text-center transition-colors duration-150 font-medium;
+  }
+
+  .dark .dropdown-item {
+    @apply hover:from-indigo-900/50 hover:to-purple-900/50;
+  }
+
+  .navbar {
+    @apply bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-sm shadow-2xl border-b border-purple-500/20;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-white/10 hover:text-purple-300 hover:shadow-lg hover:scale-105 active:scale-95;
+  }
+
+  .nav-brand {
+    @apply text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  .product-card {
+    background-color: var(--card);
+    color: var(--text);
+    border-color: rgb(156 163 175 / 0.3);
+    @apply border p-4 rounded-lg shadow-md hover:shadow-xl transition-all duration-300;
+  }
+
+  .page-container {
+    background-color: var(--bg);
+    color: var(--text);
+    @apply min-h-screen transition-colors duration-300;
+  }
+}
