@@ -16,6 +16,10 @@ React, TailwindCSS ve Radix UI kullanılarak yapılmış basit alışveriş sepe
 - Axios
 - Context API
 
+## Live Demo
+👉 [Shopping Cart Uygulaması](https://shoppingcart-project-indol.vercel.app/)
+
+
 ## Çalıştırma
 ```bash
 git clone https://github.com/<kullanici-adin>/<repo-adi>.git
